@@ -5,7 +5,7 @@ import time
 
 
 def show_colors(clrs: [tuple, None], _lux: float = 0, hex_format: bool = False):
-    """Выводит инфу о цветах"""
+    """Выводит инфу о цветах и освещенности в люксах"""
     if tuple is None:
         return
     if hex_format:
