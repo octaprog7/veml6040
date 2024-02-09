@@ -32,10 +32,10 @@ ESP или любой другой с залитой прошивкой MicroPyt
 Затем откройте main.py в своей IDE и запустите/выполните его.
 
 # Картинки
-# Плата VEML6040
+## Плата VEML6040
 На плату добавлен совершенно не нужный, КМК, СИД подсветки, который засвечивает датчик постоянно! Советую вам его выпаять,
 или купите плату без него (лучшее решение)!
 ![alt text](https://github.com/octaprog7/veml6040/blob/master/pics/6040_led_off.jpg)
 ![alt text](https://github.com/octaprog7/veml6040/blob/master/pics/6040_led_on.jpg)
-# Среда разработки
+## Среда разработки
 ![alt text](https://github.com/octaprog7/veml6040/blob/master/pics/ide_6040.png)
