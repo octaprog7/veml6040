@@ -33,7 +33,7 @@ if __name__ == '__main__':
         sensor.shutdown = False
     wait_func = time.sleep_ms
     print("Режим однократных измерений!")
-    sensor.start_measurement(integr_time=3, auto_mode=False)
+    sensor.start_measurement(integr_time=1, auto_mode=False)
     wait_time_ms = sensor.get_conversion_cycle_time()
     print(f"integration time: {sensor.integration_time}")
     show_info(sensor.integration_time)
@@ -45,7 +45,7 @@ if __name__ == '__main__':
         colors = sensor.get_colors()
         lux = get_als_lux(colors[1], g_sens)
         show_colors(colors, lux)
-        sensor.start_measurement(integr_time=3, auto_mode=False)
+        sensor.start_measurement(integr_time=1, auto_mode=False)
 
     print(32*"-")
     sensor.start_measurement(integr_time=2, auto_mode=True)
