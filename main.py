@@ -1,3 +1,4 @@
+import sys
 from machine import I2C, Pin
 from sensor_pack_2.bus_service import I2cAdapter
 import veml6040mod
@@ -55,6 +56,7 @@ if __name__ == '__main__':
     show_info(sensor.integration_time)
     g_sens, max_lux = veml6040mod.get_g_max_lux(sensor.integration_time)
 
+    counter = 0
     for colors in sensor:
         wait_func(wait_time_ms)
         if colors:
@@ -62,3 +64,7 @@ if __name__ == '__main__':
             show_colors(colors, lux)
         else:
             print(f"shutdown: {sensor.shutdown}; auto mode: {sensor.auto_mode}; it: {sensor.integration_time} [ms];")
+        counter += 1
+        if counter > 1000:
+            # завершаю программу
+            sys.exit(0)
