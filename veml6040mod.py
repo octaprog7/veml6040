@@ -86,8 +86,8 @@ class VEML6040(DeviceEx, Iterator):
     def get_colors(self) -> tuple:
         """Возвращает данные 4-х цветовых каналов: red(красный), green(зеленый), blue(синий), white(белый)"""
         buf = self._buf_4
-        for index in range(4):
-            buf[index] = self.unpack(fmt_char="H", source=self.read_reg(8 + index, 2))[0]
+        for index in range(len(buf)):
+            buf[index] = self.unpack(fmt_char="H", source=self.read_reg(0x08 + index, 2))[0]
         return tuple(*buf)
 
     def start_measurement(self, integr_time: int, auto_mode: bool):
