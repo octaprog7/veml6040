@@ -86,11 +86,9 @@ class VEML6040(DeviceEx, Iterator):
     def get_colors(self) -> tuple:
         """Возвращает данные 4-х цветовых каналов: red(красный), green(зеленый), blue(синий), white(белый)"""
         buf = self._buf_4
-        # self.read_buf_from_mem(0x08, buf, 2)
-        res = [self.unpack("H", self.read_reg(addr))[0] for addr in range(0x08, 0x0C)]
-        return tuple(res)
-        # return self.unpack("HHHH", buf)    # распаковка
-        # return self._buf_4[0], self._buf_4[1], self._buf_4[2], self._buf_4[3]
+        for index in range(4):
+            buf[index] = self.unpack(fmt_char="H", source=self.read_reg(8 + index, 2))[0]
+        return tuple(*buf)
 
     def start_measurement(self, integr_time: int, auto_mode: bool):
         """Запускает процесс измерения в автоматическом (auto_mode == True) или однократном (auto_mode == False)
